@@ -143,6 +143,7 @@ class WhisperModelCT2(WhisperModel):
         
         response = []
         for idx, r in enumerate(result):
+            print(r)
             response.append({'text': text[idx].strip()})
 
             if self.generate_kwargs['return_scores']:
