@@ -139,6 +139,7 @@ class WhisperModel(ABC):
                 res = self.generate_segment_batched(mels.to(self.device), prompts)
 
                 for res_idx, _seg_metadata in enumerate(seg_metadata):
+                    print(_seg_metadata)
                     responses[_seg_metadata['file_id']].append({**res[res_idx],
                                                                 'start_time': round(_seg_metadata['start_time'], 3),
                                                                 'end_time': round(_seg_metadata['end_time'], 3)})
