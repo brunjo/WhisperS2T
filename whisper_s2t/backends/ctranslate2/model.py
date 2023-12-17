@@ -135,7 +135,9 @@ class WhisperModelCT2(WhisperModel):
         else:
             features = features.contiguous()
 
-        result = self.model.generate(ctranslate2.StorageView.from_array(features),
+        features = ctranslate2.StorageView.from_array(features)
+        print(self.model.detect_language(features))
+        result = self.model.generate(features,
                                      prompts,
                                      **self.generate_kwargs)
         
