@@ -120,7 +120,7 @@ class WhisperModel(ABC):
     
     @torch.no_grad()
     def transcribe_with_vad(self, audio_files, lang_codes=None, tasks=None, initial_prompts=None, batch_size=8):
-        
+        raise Exception("TEST")
         if lang_codes == None:
             lang_codes = len(audio_files)*['en']
             
